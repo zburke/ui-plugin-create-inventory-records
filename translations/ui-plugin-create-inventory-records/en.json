@@ -1,4 +1,17 @@
 {
   "meta.title": "Create inventory records (plugin)",
-  "fastAddLabel": "New fast add record"
+  "fastAddLabel": "New fast add record",
+  "instanceRecord": "Instance",
+  "discoverySuppress": "Suppress from discovery",
+  "instanceStatusTerm": "Instance status term",
+  "instanceStatusTerm.uncataloged": "Uncataloged (UC: uc)",
+  "resourceTitle": "Resource title",
+  "publicationDate": "Publication date",
+  "isbn": "ISBN",
+  "issn": "ISSN",
+  "selectResourceType": "Select resource type",
+  "resourceType": "Resource type",
+  "cancel": "Cancel",
+  "saveAndClose": "Save and close",
+  "success.onSave": "Inventory records have been created successfully"
 }
