@@ -49,6 +49,7 @@ CreateRecordsForm.defaultProps = {
     instance: {},
     holding: {},
     item: {},
+    contributors: [],
   },
 };
 

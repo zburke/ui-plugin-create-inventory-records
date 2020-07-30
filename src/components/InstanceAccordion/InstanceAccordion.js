@@ -13,6 +13,8 @@ import {
   Datepicker,
 } from '@folio/stripes/components';
 
+import ContributorFields from '../ContributorFields';
+
 const InstanceAccordion = () => {
   return (
     <Accordion
@@ -103,6 +105,7 @@ const InstanceAccordion = () => {
           </FormattedMessage>
         </Col>
       </Row>
+      <ContributorFields />
     </Accordion>
   );
 };

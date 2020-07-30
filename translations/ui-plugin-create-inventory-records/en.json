@@ -13,5 +13,11 @@
   "resourceType": "Resource type",
   "cancel": "Cancel",
   "saveAndClose": "Save and close",
-  "success.onSave": "Inventory records have been created successfully"
+  "success.onSave": "Inventory records have been created successfully",
+  "addContributor": "Add contributor",
+  "contributors": "Contributors",
+  "contributors.name": "Name",
+  "contributors.nameType": "Name type",
+  "contributors.primary": "Primary",
+  "contributors.makePrimary": "Make primary"
 }
