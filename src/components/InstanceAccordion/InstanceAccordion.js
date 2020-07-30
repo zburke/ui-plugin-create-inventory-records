@@ -14,8 +14,15 @@ import {
 } from '@folio/stripes/components';
 
 import ContributorFields from '../ContributorFields';
+import {
+  useData,
+  useOptions,
+} from '../../hooks';
 
 const InstanceAccordion = () => {
+  const { instanceTypes } = useData();
+  const resourceTypeOptions = useOptions(instanceTypes, 'id', 'name');
+
   return (
     <Accordion
       id="instance"
@@ -38,7 +45,6 @@ const InstanceAccordion = () => {
                 label={<FormattedMessage id="ui-plugin-create-inventory-records.instanceStatusTerm" />}
                 name="instance.statusTerm"
                 id="select_instance_status_term"
-                type="text"
                 disabled
                 component={Select}
                 placeholder={placeholder}
@@ -99,7 +105,7 @@ const InstanceAccordion = () => {
                 required
                 component={Select}
                 placeholder={placeholder}
-                dataOptions={[]}
+                dataOptions={resourceTypeOptions}
               />
             )}
           </FormattedMessage>

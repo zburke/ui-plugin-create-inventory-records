@@ -5,7 +5,7 @@ import { Button } from '@folio/stripes/components';
 
 import CreateRecordsModal from './CreateRecordsModal';
 
-const CreateRecordsWrapper = () => {
+const CreateRecordsPlugin = () => {
   const [isModalOpen, toggleModal] = useState(false);
   const openModal = useCallback(() => toggleModal(true), []);
   const closeModal = useCallback(() => toggleModal(false), []);
@@ -24,4 +24,4 @@ const CreateRecordsWrapper = () => {
   );
 };
 
-export default CreateRecordsWrapper;
+export default CreateRecordsPlugin;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Field } from 'react-final-form';
 import { FieldArray } from 'react-final-form-arrays';
@@ -13,22 +12,14 @@ import {
 } from '@folio/stripes/components';
 
 import PrimaryToggleButton from '../PrimaryToggleButton';
+import {
+  useData,
+  useOptions,
+} from '../../hooks';
 
-const ContributorFields = props => {
-  // const {
-  //   contributorNameTypes,
-  //   contributorTypes,
-  // } = props;
-
-  // const contributorNameTypeOptions = contributorNameTypes.map(it => ({
-  //   label: it.name,
-  //   value: it.id,
-  // }));
-
-  // const contributorTypeOptions = contributorTypes.map(it => ({
-  //   label: it.name,
-  //   value: it.id,
-  // }));
+const ContributorFields = () => {
+  const { contributorNameTypes } = useData();
+  const contributorNameTypeOptions = useOptions(contributorNameTypes, 'id', 'name');
 
   return (
     <FieldArray
@@ -37,7 +28,7 @@ const ContributorFields = props => {
       name="contributors"
       legend={<FormattedMessage id="ui-plugin-create-inventory-records.contributors" />}
       addLabel={<FormattedMessage id="ui-plugin-create-inventory-records.addContributor" />}
-      renderField={(field, index, fields) => (
+      renderField={(_, index, fields) => (
         <Row>
           <Col sm={4}>
             <Field
@@ -48,12 +39,17 @@ const ContributorFields = props => {
             />
           </Col>
           <Col sm={4}>
-            <Field
-              label={<FormattedMessage id="ui-plugin-create-inventory-records.contributors.nameType" />}
-              name={`contributors[${index}].nameType`}
-              required
-              component={Select}
-            />
+            <FormattedMessage id="ui-plugin-create-inventory-records.contributors.selectType">
+              {placeholder => <Field
+                label={<FormattedMessage id="ui-plugin-create-inventory-records.contributors.nameType" />}
+                name={`contributors[${index}].nameType`}
+                required
+                placeholder={placeholder}
+                component={Select}
+                dataOptions={contributorNameTypeOptions}
+              />
+              }
+            </FormattedMessage>
           </Col>
           <Col sm={4}>
             <Field
@@ -67,11 +63,6 @@ const ContributorFields = props => {
       )}
     />
   );
-};
-
-ContributorFields.propTypes = {
-  contributorNameTypes: PropTypes.arrayOf(PropTypes.object),
-  contributorTypes: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default ContributorFields;

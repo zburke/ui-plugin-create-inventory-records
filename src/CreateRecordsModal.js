@@ -13,9 +13,13 @@ import {
 } from '@folio/stripes/components';
 
 import CreateRecordsForm from './CreateRecordsForm';
+import withData from './withData';
+import { DataContext } from './contexts';
 
 const CreateRecordsModal = ({
   onClose,
+  isLoading,
+  getData,
 }) => {
   const callout = useContext(CalloutContext);
   const handleSubmit = useCallback(() => {
@@ -24,6 +28,10 @@ const CreateRecordsModal = ({
     callout.sendCallout({ message });
     onClose();
   }, [onClose, callout]);
+
+  if (isLoading()) return null;
+
+  const data = getData();
 
   const footer = (
     <ModalFooter>
@@ -47,22 +55,26 @@ const CreateRecordsModal = ({
 
   return (
     <Modal
+      id="create-records-modal"
+      data-test-create-records-modal
       dismissible
       label={<FormattedMessage id="ui-plugin-create-inventory-records.fastAddLabel" />}
       onClose={onClose}
       footer={footer}
       open
       size="large"
-      id="create-records-modal"
-      data-test-create-records-modal
     >
-      <CreateRecordsForm onSubmit={handleSubmit} />
+      <DataContext.Provider value={data}>
+        <CreateRecordsForm onSubmit={handleSubmit} />
+      </DataContext.Provider>
     </Modal>
   );
 };
 
 CreateRecordsModal.propTypes = {
   onClose: PropTypes.func.isRequired,
+  isLoading: PropTypes.func.isRequired,
+  getData: PropTypes.func.isRequired,
 };
 
-export default stripesConnect(CreateRecordsModal);
+export default stripesConnect(withData(CreateRecordsModal));

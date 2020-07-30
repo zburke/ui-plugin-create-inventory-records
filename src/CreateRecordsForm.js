@@ -35,7 +35,6 @@ const CreateRecordsForm = ({ handleSubmit }) => {
             <ExpandAllButton />
           </Col>
         </Row>
-
         <AccordionSet initialStatus={initialStatus}>
           <InstanceAccordion />
         </AccordionSet>

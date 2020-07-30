@@ -19,5 +19,6 @@
   "contributors.name": "Name",
   "contributors.nameType": "Name type",
   "contributors.primary": "Primary",
-  "contributors.makePrimary": "Make primary"
+  "contributors.makePrimary": "Make primary",
+  "contributors.selectType": "Select type"
 }
