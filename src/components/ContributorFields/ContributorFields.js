@@ -25,7 +25,7 @@ const ContributorFields = () => {
     <FieldArray
       id="clickable-add-contributor"
       component={RepeatableField}
-      name="contributors"
+      name="instance.contributors"
       legend={<FormattedMessage id="ui-plugin-create-inventory-records.contributors" />}
       addLabel={<FormattedMessage id="ui-plugin-create-inventory-records.addContributor" />}
       renderField={(_, index, fields) => (
@@ -33,7 +33,7 @@ const ContributorFields = () => {
           <Col sm={4}>
             <Field
               label={<FormattedMessage id="ui-plugin-create-inventory-records.contributors.name" />}
-              name={`contributors[${index}].name`}
+              name={`instance.contributors[${index}].name`}
               required
               component={TextField}
             />
@@ -42,7 +42,7 @@ const ContributorFields = () => {
             <FormattedMessage id="ui-plugin-create-inventory-records.contributors.selectType">
               {placeholder => <Field
                 label={<FormattedMessage id="ui-plugin-create-inventory-records.contributors.nameType" />}
-                name={`contributors[${index}].nameType`}
+                name={`instance.contributors[${index}].contributorNameTypeId`}
                 required
                 placeholder={placeholder}
                 component={Select}
@@ -55,7 +55,7 @@ const ContributorFields = () => {
             <Field
               fields={fields}
               label={<FormattedMessage id="ui-plugin-create-inventory-records.contributors.primary" />}
-              name={`contributors[${index}].primary`}
+              name={`instance.contributors[${index}].primary`}
               component={PrimaryToggleButton}
             />
           </Col>

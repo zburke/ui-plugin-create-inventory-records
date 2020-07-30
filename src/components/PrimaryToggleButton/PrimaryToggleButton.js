@@ -8,7 +8,7 @@ const PrimaryToggleButton = ({
   label,
   input: {
     value,
-    onChange
+    onChange,
   },
   fields,
 }) => {

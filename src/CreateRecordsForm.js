@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 import {
   AccordionSet,
@@ -11,6 +12,7 @@ import {
 import stripesFinalForm from '@folio/stripes/final-form';
 
 import { InstanceAccordion } from './components';
+import { validateOptionalField } from './util';
 
 const initialStatus = {
   instance: true,
@@ -18,9 +20,44 @@ const initialStatus = {
   item: false,
 };
 
-const validate = () => {
-  return true;
-};
+function validateInstance(instance = {}) {
+  const errors = {};
+
+  if (!instance.title) {
+    errors.title = <FormattedMessage id="ui-plugin-create-inventory-records.fillIn" />;
+  }
+
+  if (!instance.instanceTypeId) {
+    errors.instanceTypeId = <FormattedMessage id="ui-plugin-create-inventory-records.selectToContinue" />;
+  }
+
+  // the list itself is not required, but if a list is present,
+  // each item must have non-empty values in each field.
+  const optionalLists = [
+    {
+      list: 'contributors',
+      textFields: ['name'],
+      selectFields: ['contributorNameTypeId'],
+    },
+  ];
+
+  optionalLists.forEach(listProps => {
+    const listErrors = validateOptionalField(listProps, instance);
+    if (listErrors.length) {
+      errors[listProps.list] = listErrors;
+    }
+  });
+
+  return errors;
+}
+
+function validate(values) {
+  const instance = validateInstance(values.instance);
+
+  return {
+    instance,
+  };
+}
 
 const CreateRecordsForm = ({ handleSubmit }) => {
   return (
@@ -45,10 +82,11 @@ const CreateRecordsForm = ({ handleSubmit }) => {
 
 CreateRecordsForm.defaultProps = {
   initialValues: {
-    instance: {},
+    instance: {
+      contributors: [],
+    },
     holding: {},
     item: {},
-    contributors: [],
   },
 };
 
