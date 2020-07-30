@@ -20,14 +20,22 @@ const CreateRecordsModal = ({
   onClose,
   isLoading,
   getData,
+  mutator,
 }) => {
   const callout = useContext(CalloutContext);
-  const handleSubmit = useCallback(() => {
-    // TODO: save the record
-    const message = <FormattedMessage id="ui-plugin-create-inventory-records.success.onSave" />;
-    callout.sendCallout({ message });
-    onClose();
-  }, [onClose, callout]);
+  const handleSubmit = useCallback(async (data) => {
+    const { instance } = data;
+    try {
+      await mutator.instance.POST(instance);
+
+      callout.sendCallout({
+        message:  <FormattedMessage id="ui-plugin-create-inventory-records.success.onSave" />
+      });
+      onClose();
+    } catch (error) {
+      // TODO: handle error
+    }
+  }, [onClose, callout, mutator]);
 
   if (isLoading()) return null;
 
@@ -75,6 +83,17 @@ CreateRecordsModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   isLoading: PropTypes.func.isRequired,
   getData: PropTypes.func.isRequired,
+  mutator: PropTypes.object.isRequired,
 };
+
+CreateRecordsModal.manifest = Object.freeze({
+  instance: {
+    type: 'okapi',
+    records: 'instances',
+    throwErrors: false,
+    path: 'inventory/instances',
+    fetch: false,
+  },
+});
 
 export default stripesConnect(withData(CreateRecordsModal));
