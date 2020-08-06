@@ -1,4 +1,27 @@
 {
     "meta.title": "إنشاء تسجيلات مخزون (برنامج مساعد)",
-    "fastAddLabel": "إضافة تسجيلة سريعة جديدة"
+    "fastAddLabel": "إضافة تسجيلة سريعة جديدة",
+    "instanceRecord": "Instance",
+    "discoverySuppress": "Suppress from discovery",
+    "instanceStatusTerm": "Instance status term",
+    "instanceStatusTerm.uncataloged": "غير مفهرس (UC: uc)",
+    "resourceTitle": "Resource title",
+    "publicationDate": "Publication date",
+    "isbn": "ISBN",
+    "issn": "ISSN",
+    "selectResourceType": "Select resource type",
+    "resourceType": "Resource type",
+    "cancel": "Cancel",
+    "saveAndClose": "Save and close",
+    "onSave.success": "تم إنشاء تسجيلات المخزون بنجاح",
+    "onSave.error": "فشل حفظ تسجيلات المخزون",
+    "addContributor": "Add contributor",
+    "contributors": "Contributors",
+    "contributors.name": "الاسم",
+    "contributors.nameType": "نوع الاسم",
+    "contributors.primary": "رئيسي",
+    "contributors.makePrimary": "اجعله الرئيسي",
+    "contributors.selectType": "حدد النوع",
+    "selectToContinue": "Please select to continue",
+    "fillIn": "Please fill this in to continue"
 }

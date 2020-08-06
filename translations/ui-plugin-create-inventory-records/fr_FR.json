@@ -1,4 +1,27 @@
 {
     "meta.title": "Create inventory records (plugin)",
-    "fastAddLabel": "New fast add record"
+    "fastAddLabel": "New fast add record",
+    "instanceRecord": "Instance",
+    "discoverySuppress": "Suppress from discovery",
+    "instanceStatusTerm": "Instance status term",
+    "instanceStatusTerm.uncataloged": "Uncataloged (UC: uc)",
+    "resourceTitle": "Titre de la ressource",
+    "publicationDate": "Date de publication",
+    "isbn": "ISBN",
+    "issn": "ISSN",
+    "selectResourceType": "Sélectionner le type de ressource",
+    "resourceType": "Type de ressource",
+    "cancel": "Annuler",
+    "saveAndClose": "Sauvegarder et fermer",
+    "onSave.success": "Inventory records have been created successfully",
+    "onSave.error": "Saving inventory records failed",
+    "addContributor": "Ajouter un contributeur",
+    "contributors": "Contributeurs",
+    "contributors.name": "Nom",
+    "contributors.nameType": "Type de nom",
+    "contributors.primary": "Principal",
+    "contributors.makePrimary": "Définir comme principal(e)",
+    "contributors.selectType": "Sélectionner le type",
+    "selectToContinue": "Merci de sélectionner pour continuer",
+    "fillIn": "Veuillez remplir ceci pour continuer"
 }

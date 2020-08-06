@@ -1,4 +1,27 @@
 {
     "meta.title": "Criar registros de inventário (plug-in)",
-    "fastAddLabel": "Novo registro de adição rápida"
+    "fastAddLabel": "Novo registro de adição rápida",
+    "instanceRecord": "Instância",
+    "discoverySuppress": "Ocultar na ferramenta de descoberta",
+    "instanceStatusTerm": "Termo do status da instância",
+    "instanceStatusTerm.uncataloged": "Não catalogado (UC: uc)",
+    "resourceTitle": "Título do recurso",
+    "publicationDate": "Data de publicação",
+    "isbn": "ISBN",
+    "issn": "ISSN",
+    "selectResourceType": "Selecione o tipo de recurso",
+    "resourceType": "Tipo de recurso",
+    "cancel": "Cancelar",
+    "saveAndClose": "Salvar e fechar",
+    "onSave.success": "Os registros de acervo foram criados com sucesso",
+    "onSave.error": "Falha ao salvar registros de acervo",
+    "addContributor": "Adicionar contribuidor",
+    "contributors": "Contribuidores",
+    "contributors.name": "Nome",
+    "contributors.nameType": "Tipo de nome",
+    "contributors.primary": "Primário",
+    "contributors.makePrimary": "Tornar primário",
+    "contributors.selectType": "Selecione o tipo",
+    "selectToContinue": "Por favor selecione para continuar",
+    "fillIn": "Por favor, preencha isto para continuar"
 }
