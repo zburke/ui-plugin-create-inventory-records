@@ -1,3 +1,4 @@
+import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -10,8 +11,14 @@ import {
 } from '@folio/stripes/components';
 import stripesFinalForm from '@folio/stripes/final-form';
 
-import { InstanceAccordion } from './components';
-import { validateInstance } from './util';
+import {
+  InstanceAccordion,
+  HoldingAccordion,
+} from './components';
+import {
+  validateInstance,
+  validateHolding,
+} from './util';
 
 const initialStatus = {
   instance: true,
@@ -21,13 +28,19 @@ const initialStatus = {
 
 const validate = (values) => {
   const instance = validateInstance(values.instance);
+  const holding = validateHolding(values.holding);
+
+  if (isEmpty(instance) && isEmpty(holding)) {
+    return {};
+  }
 
   return {
     instance,
+    holding,
   };
 };
 
-const CreateRecordsForm = ({ handleSubmit }) => (
+const CreateRecordsForm = ({ handleSubmit, form }) => (
   <form
     id="create-records-form"
     data-test-create-records-form
@@ -41,6 +54,7 @@ const CreateRecordsForm = ({ handleSubmit }) => (
       </Row>
       <AccordionSet initialStatus={initialStatus}>
         <InstanceAccordion />
+        <HoldingAccordion change={form.change} />
       </AccordionSet>
     </AccordionStatus>
   </form>
@@ -48,6 +62,7 @@ const CreateRecordsForm = ({ handleSubmit }) => (
 
 CreateRecordsForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  form: PropTypes.object.isRequired,
 };
 
 export default stripesFinalForm({

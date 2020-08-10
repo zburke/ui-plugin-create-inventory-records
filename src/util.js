@@ -69,6 +69,16 @@ export const validateInstance = (instance = {}) => {
   return errors;
 };
 
+export const validateHolding = (holding = {}) => {
+  const errors = {};
+
+  if (!holding.permanentLocationId) {
+    errors.permanentLocationId = <FormattedMessage id="ui-plugin-create-inventory-records.selectToContinue" />;
+  }
+
+  return errors;
+};
+
 export const parseIdentifiers = (instance, identifierTypesByName) => {
   const identifiers = [];
   const {
@@ -112,6 +122,12 @@ export const parseInstance = (instance, identifierTypesByName) => {
   instance.source = 'FOLIO';
 
   return instance;
+};
+
+export const parseHolding = (holding, instance) => {
+  holding.instanceId = instance.id;
+
+  return holding;
 };
 
 export default {};
