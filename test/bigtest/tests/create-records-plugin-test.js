@@ -55,14 +55,14 @@ describe('CreateInventoryRecords', () => {
       });
     });
 
-    // describe('click cancel', () => {
-    //   beforeEach(async () => {
-    //     await plugin.modal.clickCancel();
-    //   });
+    describe('click cancel', () => {
+      beforeEach(async () => {
+        await plugin.modal.clickCancel();
+      });
 
-    //   it('closes modal', () => {
-    //     expect(plugin.modal.isPresent).to.be.false;
-    //   });
-    // });
+      it('closes modal', () => {
+        expect(plugin.modal.isPresent).to.be.false;
+      });
+    });
   });
 });
