@@ -39,7 +39,6 @@ describe('CreateInventoryRecords', () => {
         await plugin.modal.form.contributors.selectNameTypeField('Personal name');
         await plugin.modal.form.contributors.makeFirstContributorPrimary();
         // holdings record
-        await plugin.modal.form.openHoldingAccordion();
         await plugin.modal.form.openLocationLookup();
         await plugin.locationLookup.whenLoaded();
         await plugin.locationLookup.clickOnLocationBtn();

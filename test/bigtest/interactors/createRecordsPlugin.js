@@ -40,7 +40,6 @@ import CalloutInteractor from '@folio/stripes-components/lib/Callout/tests/inter
   isbnField = fillable('#isbn');
   selectInstanceType = selectable('#select_instance_type');
   openLocationLookup = clickable('[data-test-location-lookup-button]');
-  openHoldingAccordion = clickable('#accordion-toggle-button-holding');
 }
 
 @interactor class ModalInteractor {

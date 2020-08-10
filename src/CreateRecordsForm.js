@@ -22,7 +22,7 @@ import {
 
 const initialStatus = {
   instance: true,
-  holding: false,
+  holding: true,
   item: false,
 };
 
