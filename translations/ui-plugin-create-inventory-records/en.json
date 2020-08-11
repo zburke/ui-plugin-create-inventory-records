@@ -2,6 +2,7 @@
   "meta.title": "Create inventory records (plugin)",
   "fastAddLabel": "New fast add record",
   "instanceRecord": "Instance",
+  "holdingsRecord": "Holdings",
   "discoverySuppress": "Suppress from discovery",
   "instanceStatusTerm": "Instance status term",
   "instanceStatusTerm.uncataloged": "Uncataloged (UC: uc)",
@@ -23,5 +24,13 @@
   "contributors.makePrimary": "Make primary",
   "contributors.selectType": "Select type",
   "selectToContinue": "Please select to continue",
-  "fillIn": "Please fill this in to continue"
+  "fillIn": "Please fill this in to continue",
+  "permanentLocation": "Permanent location",
+  "temporaryLocation": "Temporary location",
+  "selectLocation": "Select location",
+  "callNumberType": "Call number type",
+  "callNumberPrefix": "Call number prefix",
+  "callNumber": "Call number",
+  "callNumberSuffix": "Call number suffix",
+  "selectType": "Select type"
 }

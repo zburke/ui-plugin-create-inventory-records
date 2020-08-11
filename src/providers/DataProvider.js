@@ -64,6 +64,11 @@ DataProvider.manifest = Object.freeze({
     records: 'identifierTypes',
     path: 'identifier-types?limit=1000&query=cql.allRecords=1 sortby name',
   },
+  callNumberTypes: {
+    type: 'okapi',
+    path: 'call-number-types?limit=1000&query=cql.allRecords=1 sortby name',
+    records: 'callNumberTypes',
+  },
 });
 
 export default stripesConnect(DataProvider);

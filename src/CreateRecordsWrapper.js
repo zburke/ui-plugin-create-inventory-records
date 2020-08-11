@@ -5,26 +5,41 @@ import { FormattedMessage } from 'react-intl';
 import { stripesConnect } from '@folio/stripes/core';
 
 import CreateRecordsForm from './CreateRecordsForm';
-import { parseInstance } from './util';
+import {
+  parseInstance,
+  parseHolding,
+} from './util';
 import {
   useData,
   useCallout,
   useIsLoading,
 } from './hooks';
 
+const initialValues = {
+  instance: {
+    discoverySuppress: true,
+    contributors: [],
+  },
+  holding: {},
+};
+
 const CreateRecordsWrapper = ({
   onCreate,
-  mutator: { createInstance },
+  mutator: {
+    createInstanceRecord,
+    createHoldingsRecord,
+  },
 }) => {
   const { identifierTypesByName } = useData();
   const callout = useCallout();
   const isLoading = useIsLoading();
 
   const handleSubmit = useCallback(async (formData) => {
-    const { instance } = formData;
+    const { instance, holding } = formData;
 
     try {
-      await createInstance.POST(parseInstance(instance, identifierTypesByName));
+      const instanceRecord = await createInstanceRecord.POST(parseInstance(instance, identifierTypesByName));
+      await createHoldingsRecord.POST(parseHolding(holding, instanceRecord));
 
       callout.sendCallout({
         message: <FormattedMessage id="ui-plugin-create-inventory-records.onSave.success" />,
@@ -37,21 +52,20 @@ const CreateRecordsWrapper = ({
         type: 'error',
       });
     }
-  }, [onCreate, callout, createInstance, identifierTypesByName]);
+  }, [
+    onCreate,
+    callout,
+    createInstanceRecord,
+    createHoldingsRecord,
+    identifierTypesByName,
+  ]);
 
   if (isLoading) return null;
 
   return (
     <CreateRecordsForm
       onSubmit={handleSubmit}
-      initialValues={{
-        instance: {
-          discoverySuppress: true,
-          contributors: [],
-        },
-        holding: {},
-        item: {},
-      }}
+      initialValues={initialValues}
     />
   );
 };
@@ -62,11 +76,16 @@ CreateRecordsWrapper.propTypes = {
 };
 
 CreateRecordsWrapper.manifest = Object.freeze({
-  createInstance: {
+  createInstanceRecord: {
     type: 'okapi',
-    records: 'instances',
     throwErrors: false,
     path: 'inventory/instances',
+    fetch: false,
+  },
+  createHoldingsRecord: {
+    type: 'okapi',
+    path: 'holdings-storage/holdings',
+    throwErrors: false,
     fetch: false,
   },
 });
