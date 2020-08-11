@@ -23,5 +23,14 @@
     "contributors.makePrimary": "Définir comme principal(e)",
     "contributors.selectType": "Sélectionner le type",
     "selectToContinue": "Merci de sélectionner pour continuer",
-    "fillIn": "Veuillez remplir ceci pour continuer"
+    "fillIn": "Veuillez remplir ceci pour continuer",
+    "holdingsRecord": "Holdings",
+    "permanentLocation": "Permanent location",
+    "temporaryLocation": "Temporary location",
+    "selectLocation": "Select location",
+    "callNumberType": "Call number type",
+    "callNumberPrefix": "Call number prefix",
+    "callNumber": "Call number",
+    "callNumberSuffix": "Call number suffix",
+    "selectType": "Select type"
 }
