@@ -50,7 +50,7 @@ const validate = (values) => {
   };
 };
 
-const CreateRecordsModal = ({
+const CreateRecordsForm = ({
   onClose,
   handleSubmit,
   form,
@@ -108,7 +108,7 @@ const CreateRecordsModal = ({
   </form>
 );
 
-CreateRecordsModal.propTypes = {
+CreateRecordsForm.propTypes = {
   onClose: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   form: PropTypes.object.isRequired,
@@ -119,4 +119,4 @@ CreateRecordsModal.propTypes = {
 export default stripesFinalForm({
   validate,
   navigationCheck: true,
-})(CreateRecordsModal);
+})(CreateRecordsForm);
